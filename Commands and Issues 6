@@ -1,0 +1,13 @@
+bash- general setting is in /etc/profile and user dependent settting can be found in ~/.bash_profile, ~/.bash_logout.s
+echo hello this is my world # do not screw it please.
+echo with escaped characters: echo -e "hello\nthere"
+
+Escape sequence Function
+
+\a   Alert (bell)
+\b  Backspace
+\c  Suppress trailing newline(same function as -n option)
+\f  Form feed (clear the screen on a video display)
+\n  New line
+\r Carriage return
+\t Horizontal tab
