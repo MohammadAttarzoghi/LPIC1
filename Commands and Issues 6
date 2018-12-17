@@ -1,9 +1,7 @@
 bash- general setting is in /etc/profile and user dependent settting can be found in ~/.bash_profile, ~/.bash_logout.s
 echo hello this is my world # do not screw it please.
 echo with escaped characters: echo -e "hello\nthere"
-
 Escape sequence Function
-
 \a   Alert (bell)
 \b  Backspace
 \c  Suppress trailing newline(same function as -n option)
@@ -11,3 +9,211 @@ Escape sequence Function
 \n  New line
 \r Carriage return
 \t Horizontal tab
+break command in lines
+echo hi\
+my name is ali
+hi my name is ali
+
+The most important ones are ; (do one by one), && (logical and) and || (logical or).
+$ echo line 1;echo line 2; echo line 3 line  1
+line 2
+line 3
+$ echo line 1&&echo line 2&&echo line 3 line  1
+line 2
+line 3
+
+$ echo line 1||echo line 2; echo line 3 
+line 1
+line 3
+exiting the shell:
+exit and ctrl+d, 
+if a command is run inside paranteses that will be executed inside a sub-shell
+'exec' will run and closes the current shell.
+
+environment variables
+Name          Function
+
+USER   The name of the logged-in user
+UID    The numeric user id of the logged-in user
+HOME   The user's home directory
+PWD    The current working directory
+SHELL  The name of the shell
+$      The process id (or PIDof the running bash shell (or other) process
+PPID   The process id of the process that started this process (that is, the id of the parent process)
+?      The exit code of the last command
+by exporting a variable it can be acceissible for other programs starting from that sehll
+echo "-${HOME}_abc"
+env list theecurrent EVs
+uname
+
+Option                                     Description
+
+-s                    Print the kernel name. This is the default if no option is specified.
+-n                    Print the nodename or hostname.
+-r                     Print the release of the kernel. This option is often used with module-handling commands.
+-v                    Print the version of the kernel.
+-m                   Print the machine's hardware (CPU) name.
+-o                    Print the operating system name.
+-a                   Print all of the above information.
+
+history
+
+history 20  shows last 20 commands
+!!          last command
+!string     most recent command that starts with string
+!?string?   most recent command that contains string
+Paths
+which command
+whereis command
+type command
+man -f command
+apropos somewords # it searches all man pages
+------------------------------------------------
+piping
+ls dir >myout
+cat> mydata
+..
+..
+..
+CTRL+D
+cat file1 file2
+
+od, -t a ,-t c
+
+split -l 2 input output 
+split -b 42
+split -n 5
+split -ld     x00 x01 ...
+cat x*> original files
+wc , wc -l
+head -n20 -20
+tail -f
+expand tab to space
+unexpand
+tr '123' 'ABC' replaces 123 to ABC
+wc -l mydata | cat mydata - mydata  if you put - instead of a filename, the data will be replaced from the pipe (or keyboard stdin).
+pr
+nl numbers lines. cat -n
+sort, sort -n for numerical sort, -r will do reverse.
+uniq: it is clear that for correct output, input must be sorted first.
+uniq -c counts of each item
+uniq -u shows only non repeated items.
+uniq -d shows only repeated items.
+cut will cut a column: cut -f1 howcool cut -f1-3 or cut -c4,5,6,7.
+tr ' ' '\t\
+
+Paste: it paste contents of two files side by side.
+join: joins contents of files based on the matching field. files must be sorted before using to join
+sed stream editor: 's/a/b/g' or sed 's/ /\t/g' mydata>mydata.tab
+---------------------------------------
+ls -t -r -1 -l
+cp source destination
+mv
+rm
+
+-f (--force) will cause cp to try overwrite the target.
+-i (--interactive) will ask Y/N question (deleting / overwriting).
+-b  (--backup) will make backups of overwritten files
+-p  will preserve the attributes.
+mkdir -p will create nested dirctories.
+rmdir -p nested directories.
+$  tree
+.
+├── dirA
+├── dirB
+├──   howcool.sort
+└──  uses.sort
+
+2 directories, 2 files
+$  rmdir  dirA  dirB
+$  mkdir  -p  newDir/insideNew/lastDir
+$  tree
+.
+├──   howcool.sort
+├──  newDir
+│       └──  insideNew
+│              └──  lastDir
+└──  uses.sort
+
+3 directories, 2 files
+$  rmdir  -p  newDir/insideNew/lastDir
+$  tree
+.
+├──   howcool.sort
+└──  uses.sort
+
+0 directories, 2 files
+
+-r option will do it recursively
+
+$ tree mydir
+mydir
+├──   howcool.sort
+├──  newDir
+│       ├──  insideNew
+│      │      └──  lastDir
+│      └──  TestFile
+└──  uses.sort
+
+3 directories, 3 files
+$  mkdir  newCopy
+$ cp mydir newCopy
+cp: omitting directory ‘mydir’
+$ cp -r mydir newCopy
+$ tree newCopy/
+newCopy/
+└── mydir
+├──   howcool.sort
+├──  newDir
+│       ├──  insideNew
+│      │      └──  lastDir
+│      └──  TestFile
+└──  uses.sort
+
+4 directories, 3 files
+rm -rf / extremly dangerous.
+wildcards
+* means any string
+?   means any single character
+[ABC]   matches A, B & C
+[a-k]  matches a, b, c, ..., k (both lower-case and capital)
+[0-9a-z]  matches all digits and numbers
+[!x] means NOT X.
+touch will touch a file.
+
+
+[ian@echidna lpi103-2]$ touch -t 200908121510.59 f3 [ian@echidna lpi103-2]$ touch -d 11am f4  
+[ian@echidna  lpi103-2]$  touch  -d  "last  fortnight"  f5 [ian@echidna lpi103-2]$ touch -d 
+"yesterday 6am" f6
+[ian@echidna lpi103-2]$ touch -d "2 days ago 12:00" f7 [ian@echidna lpi103-2]$ touch -d "tomorrow 
+02:00" f8 [ian@echidna lpi103-2]$ touch -d "5 Nov" f9 [ian@echidna lpi103-2]$ ls -lrt f*
+-rw-rw-r--. 1 ian ian 0 2009-07-31 18:31 f5
+-rw-rw-r--. 1 ian ian 0 2009-08-12 12:00 f7
+-rw-rw-r--. 1 ian ian 0 2009-08-12 15:10 f3
+-rw-rw-r--. 1 ian ian 0 2009-08-13 06:00 f6
+-rw-rw-r--. 1 ian ian 0 2009-08-14 11:00 f4
+-rw-rw-r--. 1 ian ian 4 2009-08-14 18:25 f1
+-rw-rw-r--. 1 ian ian 0 2009-08-14 18:27 f2
+-rw-rw-r--. 1 ian ian 0 2009-08-15 02:00 f8
+-rw-rw-r--. 1 ian ian 0 2009-11-05 00:00 f9
+setting another file touch time to another file:
+[ian@echidna  lpi103-2]$  date Fri Aug 14 18:33:48 EDT 2009
+[ian@echidna lpi103-2]$ date -r f1 Fri Aug 14 18:25:50 EDT 2009
+[ian@echidna lpi103-2]$ touch -r f1 f1a [ian@echidna lpi103-2]$ ls -l f1*
+-rw-rw-r--. 1 ian ian 4 2009-08-14 18:25 f1
+-rw-rw-r--. 1 ian ian 0 2009-08-14 18:25 f1a
+find . -iname -type f "*my" -size +1M -size -100M
+-type f
+-type d
+-type l
+find . -empty -exec rm '{}' \;
+find . -name "*.htm" -exec mv '{}' '{}l' \;
+
+switch  meaning
+-atime -6                  file was last accessed less than 6*24 hours ago
+-ctime +6                  file was changed more than 6*24 hours ago
+-mtime -6                  file content moditication less than time is 6*24 ago
+-mmin -90                  file's data was last modified less than 90 minutes ago
+-amin, -cmin               you guess!
+file will identify the file -i will add extra comments.
+
