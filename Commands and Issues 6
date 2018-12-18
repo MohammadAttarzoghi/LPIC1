@@ -217,3 +217,24 @@ switch  meaning
 -amin, -cmin               you guess!
 file will identify the file -i will add extra comments.
 
+Compressing files
+gzip filename
+gunzip zipfilename
+  gzip preserves time
+  gzip creates the new compressed file with the same name but with .gz ending
+  gzip removes the original files after creating the compressed file
+bzip2 filename
+bunzip2 filename
+
+Archiving files: tar cpio
+
+switch  meanint
+-cf myarchive.tar                create file named myarchive.tar
+-xf myarchive.tar                extract a file called myarchive.tar
+-z                               compress the archive with gzip after creating it
+-b                               compress the archive with bzip2 after creating it
+-v                               verbose! print a lot of data about what you are doing
+-r                               appeng new files to the currentyp available archive
+
+
+
