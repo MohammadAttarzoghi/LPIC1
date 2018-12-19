@@ -306,3 +306,83 @@ we'll.still.type
 and,
 done!
 
+$ cat what_i_have.txt
+laptop
+socks
+tshirt
+ball
+socks
+glasses
+$ cut -f1 -d' ' what_i_have.txt | sort | uniq -c | sort -nr
+2 socks
+1 tshirt
+1 laptop
+1 glasses
+1 ball
+If you need to start your pipeline with the contents of a file, start with cat filename | ... or use a < stdin redirect.
+
+xargs
+tee
+
+bg show background jobs
+fg shows foreground jobs
+& put to background
+jogs shows all jobs
+ctrl +Z susptends a job
+
+nohup script.sh > mynohup.out 2>&1 &
+
+kill -9 PID (impolite)
+kill -15 PID (polite)
+killall proc(send 15)
+
+ps show running procs in your shell
+ps -aux or aux or -ef shows all processes in your entire computer system.
+
+ps -C gedit -o user,pid,tty,time,comm
+USER PID TT TIME COMMAND
+jadi 6213 ? 00:04:49 gedit
+
+It is also possible to use the --sort switch to sort output based on different fields (+ for ascending & - for descending).
+$ ps -af --sort +comm,-sid
+UID PID PPID C STIME TTY TIME CMD
+root 5486 5478 0 19:59 pts/12 00:00:00 -su
+root 4444 1169 0 19:56 tty4 00:00:00 -bash
+jadi 6638 5412 0 20:10 pts/0 00:00:04 node /usr/local/bin/sslocal
+jadi 7778 7651 0 20:58 pts/1 00:00:00 ps -af --sort +comm,-sid
+jadi 7678 7651 0 20:48 pts/1 00:00:00 sleep 1000
+jadi 7679 7651 0 20:48 pts/1 00:00:00 sleep 1001
+jadi 7775 7651 0 20:58 pts/1 00:00:00 sleep 1000
+jadi 7776 7651 0 20:58 pts/1 00:00:00 sleep 1000
+jadi 7777 7651 0 20:58 pts/1 00:00:00 sleep 1000
+root 5478 5477 0 19:59 pts/12 00:00:00 su -
+root 5477 5008 0 19:59 pts/12 00:00:00 sudo su -
+jadi 7680 7651 0 20:48 pts/1 00:00:01 xeyes
+
+top
+
+free
+ uptime
+ --------------------
+ nice
+ 1. Give high priorities (less than 0) needs root access
+2. If you are not root and asking for nice level lower than 0 you'll get an error message but the process will run with
+normal nice level (0).
+If you run a command with nice without any parameters, the nice value will be 10:
+
+ps -l
+renice changing the priority
+
+
+
+
+
+
+
+
+
+
+
+
+
+
