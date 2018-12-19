@@ -235,6 +235,74 @@ switch  meanint
 -b                               compress the archive with bzip2 after creating it
 -v                               verbose! print a lot of data about what you are doing
 -r                               appeng new files to the currentyp available archive
+-o makes cpio to create an output from its input
+cpio does not goes into the folders. So mostly we use it with find.
+find . -name "*" | cpio -o > myarchivefind.cpi
+to decompress it:
+mkdir extract
+mv myarchivefind.cpio extract
+cd extract
+cpio -id < myarchivefind.cpio
+-d will create the folders
+-i is for extract
 
+dd if= file, partition of= file bs= count=
+# dd if=/dev/sda of=backup.dd bs=4096
+# dd if=/dev/sda2 |gzip >backup.dd.gzip
+$ dd if=/dev/zero of=1g.bin bs=1G count=1
 
+ls j* m* > output 2> errors
+
+1. stdout is the standard output stream, which displays output from commands (file descriptor 1)
+2. stderr is the standard error stream, which displays error output from commands (file descriptor 2)
+3. stdin is the standard input stream, which provides input to commands (file descriptor 0)
+What are these file descriptions? There are used to control the output. If you need to control where your output goes, you
+can add n> or n>> .
+n> redirects file description n to a file or device. If the file already exists it is overwritten and if it does not exists, it
+will be created.
+n>> redirects file description n to a file or device. If the file already exists the stream will be appended to the end of it
+and if it does not exists, it will be created.
+if the n is not given, the default is standard output
+The user who runs the command should have write access to the file.
+
+$ ls
+fiona habib mahmoodrm minoo mojtaba sina
+$ ls j*
+ls: cannot access j*: No such file or directory
+$ ls m*
+mahmoodrm minoo mojtaba
+$ ls j* m*
+ls: cannot access j*: No such file or directory
+mahmoodrm minoo mojtaba
+$ ls j* m* > output 2> errors
+$ cat output
+mahmoodrm
+minoo
+mojtaba
+$ cat errors
+
+ls: cannot access j*: No such file or directory
+Redirect stdout to one file and stderr to another file:
+command > out 2>error
+Redirect stderr to stdout (&1), and then redirect stdout to a file:
+command >out 2>&1
+Redirect both to a file:
+command &> out
+
+redirecting input
+
+here-documents
+$ tr ' ' '.' << END_OF_DATA
+> this is a line
+> and then this
+>
+> we'll still type
+> and,
+> done!
+> END_OF_DATA
+this.is.a.line
+and.then.this
+we'll.still.type
+and,
+done!
 
