@@ -1,0 +1,7 @@
+Fgrep =  grep -f
+Egrep = grep -e
+ grep -E "^[a-zA-Z][a-zA-Z0-9._]*" greptest.txt
+Sed -r regex use
+Pptpd  define linux users and have fun. Tunnel
+df -ih
+Dhclient -v -r
