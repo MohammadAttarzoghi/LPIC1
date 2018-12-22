@@ -5,3 +5,30 @@ Sed -r regex use
 Pptpd  define linux users and have fun. Tunnel
 df -ih
 Dhclient -v -r
+
+
+Format                                                                                   
+Description
+
+
+
+ext2 
+second extended filesystem was developed to address shortcomings in the Minix filesystem used in 
+early versions of Linux. It has been used extensively on Linux for many years. There is no 
+journaling in ext2, and it has largely been replaced by ext3 and more recently ext4.
+
+ext3         ext2 + journaling, total storage can be 1EXAByte and each file can be 16TB
+ReiserFS        ReiserFS is a B-tree-based filesystem, great for large numbers of small files,journaling, no longer in active development & does not support SELinux, replaced with Reiser4.
+XFS                 journaling, caches to RAM, great for uninterruptible power supplies
+swap               Swap space must be formatted for use as swap space, but it is not generally considered a filesystem.
+vfat                  FAT32, no journaling, good for data exchange with windows, does not understand permissions andsymbolic links
+ext4                newer than ext3
+
+fsck: If anything bad happens for your filesystem (say power suddenly goes down) you will have a corrupted file system. The
+command to fix this is fsck . Technically this command is a front end for many commands
+A common switch during boot is -A which tells fsck to check all file systems in /etc/fstab ordered by passno in that file
+which is 6th field (File systems with passno of 0, wont be checked during the boot.
+Tune2fs: This is a command to tune ext file systems. It can show information and set many options. The -l option lists the current
+configs: jadi@funlife:~$ df -TH Here the -T switch make df to show the file system types an. If you need the inode data, use the -i switc
+vfat file format has no inodes; there is no owner or access rights on vfat filesystems.
+
