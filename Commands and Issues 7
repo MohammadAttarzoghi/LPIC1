@@ -50,19 +50,3 @@ This is an interactive tool for debug an ext filesystem. It opens the filesystem
 Superblock
 Unix systems use superblocks to save filesystem metadata. Most of the times this block is located at the beginning of the
 file system and replicated on other locations too. The -n of mke2fs displays superblock locations
-
-chmod
-user group other
-rwx rwx    rwx
-421 421    421
-chmod 750
-chmod +x
-chmod u+x
-chmod g-r
-chmod o-w
-chmod ugo+w
-umask: default permission is 0666-umask
-usmask = 0022 so default permission is 0644
-chown root file
-chown root:root file
-chgrp mohammad file
