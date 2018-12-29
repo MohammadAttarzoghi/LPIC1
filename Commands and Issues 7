@@ -32,3 +32,37 @@ Tune2fs: This is a command to tune ext file systems. It can show information and
 configs: jadi@funlife:~$ df -TH Here the -T switch make df to show the file system types an. If you need the inode data, use the -i switc
 vfat file format has no inodes; there is no owner or access rights on vfat filesystems.
 
+du
+The DiskUsage command give information about the used space of directories and files. The common 
+switches are:
+switch                          usage
+
+-h                       human readable (1k = 1000)
+-H                       human readable (1k= 1024)
+-c                        show the grand total
+--max-depth 2        shows only 2 directories furthur
+-s          Only shows the summary and not all the directories one by one
+
+debugfs
+This is an interactive tool for debug an ext filesystem. It opens the filesystem in read-only mode unless we tell it not to (with
+-w option). If can un-delete files and directories..
+
+Superblock
+Unix systems use superblocks to save filesystem metadata. Most of the times this block is located at the beginning of the
+file system and replicated on other locations too. The -n of mke2fs displays superblock locations
+
+chmod
+user group other
+rwx rwx    rwx
+421 421    421
+chmod 750
+chmod +x
+chmod u+x
+chmod g-r
+chmod o-w
+chmod ugo+w
+umask: default permission is 0666-umask
+usmask = 0022 so default permission is 0644
+chown root file
+chown root:root file
+chgrp mohammad file
