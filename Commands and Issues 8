@@ -1,0 +1,61 @@
+chmod
+user group other
+rwx rwx    rwx
+421 421    421
+chmod 750
+chmod +x
+chmod u+x
+chmod g-r
+chmod o-w
+chmod ugo+w
+Access mode
+suid set userid chmod u+-s
+guid set group id chmod g+-s
+$ ls -ltrh /usr/bin/passwd
+-rwsr-xr-x 1 root root 50K Jul 18 2014 /usr/bin/passwd
+Did you note the s in the place of executable bit for the user and for the group? That means when any user runs this
+.program, it will be run by the access of the owner of the file (which is root) instead of that users id
+It is possible to set / unser the suid and sgid using chmod and +s or -s instead of x .
+umask: default permission is 0666-umask
+usmask = 0022 so default permission is 0644
+chown root file
+chown root:root file
+chgrp mohammad file
+
+which
+The which command shows the first appearance of the command given in path
+use the -a switch to show all appearance in the path and not only the first one.
+
+The type command is more general that which and also understand and shows the bash keywords.
+
+Another useful command in this category is whereis . Unlike which , whereis shows man pages and source codes of
+programs alongside their binary location.
+$ whereis mkfs
+mkfs: /sbin/mkfs.bfs /sbin/mkfs.ext3 /sbin/mkfs.ext4 /sbin/mkfs.vfat /sbin/mkfs.cramfs /sbin/mkfs.minix /sbin/mkfs.ext2 /sbin/mkfs.msdos $ whereis ping
+ping: /bin/ping /usr/share/man/man8/ping.8.gz
+$ whereis chert
+chert:
+find:
+$ find /tmp/ -maxdepth 1 -user jadi | head
+$ find /tmp/ -maxdepth 1 -user jadi | head
+Or even find the files not belonging to any user / group with -nouser and -nogroup .
+Like other tests, you can add a ! just before any phrase to negate it. So this will find files not belonging to jadi:
+find . ! -user jadi
+
+locate
+$ time locate kernel | wc -l
+11235
+real 0m0.341s
+user 0m0.322s
+sys 0m0.015s
+
+Please note that you can update the db by running updatedb as root and get some info about it by -S switch of locate
+command:
+$ locate -S
+Database /var/lib/mlocate/mlocate.db:
+73,602 directories
+711,894 files
+46,160,154 bytes in file names
+18,912,999 bytes used to store database 
+
+
