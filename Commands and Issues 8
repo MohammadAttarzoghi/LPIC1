@@ -16,6 +16,15 @@ $ ls -ltrh /usr/bin/passwd
 Did you note the s in the place of executable bit for the user and for the group? That means when any user runs this
 .program, it will be run by the access of the owner of the file (which is root) instead of that users id
 It is possible to set / unser the suid and sgid using chmod and +s or -s instead of x .
+
+The last special option is  chmod   is the sticky bit which lets only the owner of the file to 
+delete it, even if other users have write (delete) access on that directory. This is good for 
+places like /tmp.
+
+Sticky bit is identified by t and will be shown on the last bit of a directory:
+$ ls -dl /tmp
+drwxrwxrwt 13 root root 77824 Feb   8 21:27 /tmp
+
 umask: default permission is 0666-umask
 usmask = 0022 so default permission is 0644
 chown root file
