@@ -1,0 +1,2 @@
+ssh-keygen		creating a key for ssh connection.
+ssh-copy-id ip		copying key to destination machine with ip address.         
