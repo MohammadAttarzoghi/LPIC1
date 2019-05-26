@@ -1,2 +1,50 @@
+SSH
 ssh-keygen		creating a key for ssh connection.
 ssh-copy-id ip		copying key to destination machine with ip address.         
+sock proxy:
+  ssh -D 3128 -N -f -C -q user@IPADDR
+port Forwarding:
+  ssh -L sourceport:desthost:destport forwradserverip
+----------------------------------------------------------  
+ls | cpio -o > myarchive.cpio  or ls | cpio -oF myarchive.cpio
+
+Create a cpio archive of all files that are on the current directory
+
+find /home/ | cpio -o > homedirs.cpio     Create a cpio archive of all users' home directories
+
+cpio -id < myarchive.cpio                 Extract all files from a cpio archive, recreating the directory structure
+cpio -i -t < myarchive.cpio               List the contents of a cpio archive file without  extracting it
+gzip myfile                               Compress a file with gzip
+gunzip myfile.gz                          Decompress a gzip-compressed file
+gunzip = gzip -d
+gunzip -tv myfile.gz                      Test the integrity of a gzip-compressed file
+zcat myfile.gz                            Read a gzip-compressed text file
+bzip2 myfile                              Compress a file with bzip2
+bunzip2 myfile.bz2                        Decompress a bzip2-compressed file
+bzcat myfile.bz2                          Read a bzip2-compressed text file
+tar cvf myarc.tar mydir/                  Create a tarred archive
+tar cvzf myarc.tar.gz mydir/              Create a tarred gzip-compressed archive
+tar xvzf  myarc.tar.gz                    Extract a tarred gzip-compressed archive
+tar cvjf myarc.tar.bz2  mydir/            Create a tarred bzip2-compressed archive
+tar xvjf myarc.tar.bz2                    Extract a tarred bzip2-compressed archive
+tar cvJf myarc.tar.xz mydir/              Create a tarred xz-compressed archive
+tar xvJf myarc.tar.xz                     Extract a tarred xz-compressed archive
+tar tvf myarc.tar                         List the contents of the tarred archive without extracting it
+rar a myarc.rar mydir/                    Create a RAR archive
+unrar x myarc.rar                         Extract a RAR archive
+--------------------------------------------------
+cat > myfile<<EOF
+hi
+my name is mohammad.
+goodluck.
+EOF
+----------------------------------------------------
+head -n 10 myfile
+tail -n 10 myfile
+tail -f myfile: automatically shows the updated output
+------------------------------------------------------
+cat
+tac shows in a reverser format.
+--------------------------------------
+fmt -w 75 myfile  :Format a text file so that each line has a max width of 75 chars
+pr myfile
