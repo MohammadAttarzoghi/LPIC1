@@ -85,9 +85,7 @@ MYVAR=$((MYVAR+1)) ((MYVAR=MYVAR+1)) ((MYVAR+=1))
 let "MYVAR=MYVAR+1" let "MYVAR+=1"
 let MYVAR++   Increment a numeric variable
 unset MYVAR                         Delete a variable
-
 export MYVAR                        Export a variable so it can be seen by Bash child processes
-
 set ${MYVAR:=value}
 MYVAR=${MYVAR:-value}               Set a variable, if it is not already set (i.e. does not exist) or is null
 echo $MYVAR                         Print the value of a variable
@@ -112,5 +110,22 @@ alias                               Show defined aliases
 \ls
 /bin/ls                             Run the non-aliased version of the ls command
 uname -a |awk '{print $13}' how to get  to cpu of  a host
+-------------------------------------------------------
+Process:
+command&   		 puts the proc to background
+jobs shows the jobs running
+fg %number		  brings the the mentioned job with number to foreground and takes the session from user.
+bg %number  	 sends the specified process to backgroung.
+(makes user unable to run a command. for exit press CTRL+C or D).
+nohup 			  causes to run command even it's parent bash is closed.
+uptime		shows the resource usage by users in 1 5 15 past minutes.
+free 		Shows the amount of free and used memory in the system
+top 		Monitor processes in realtime. Press C to see process detatils.Shift+M sort based on memory usage. k to kill process.
+pkill		kills process by name pkill -9 -u root sshd 	Kills processes whose name is sshd and are owned by root
+
+
+
+
+
 
 
