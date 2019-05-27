@@ -74,6 +74,10 @@ tr a-z A-Z <myfile
 tr [:lower:] [:upper:] <myfile   Translate characters: Convert all lowercase into uppercase in a text file
 tr -d 0-9 <myfile
 tr -d [:digit:] <myfile          Delete all digits from a text file
+------------------------------------------------------
+When a login shell is launched  /etc/profile ~/.bash_profile ~/.bash_login ~/.profile The shell executes the system-wide profile file, then the first of the 3 user files that exists and is readable 
+When a login shell exits  ~/.bash_logout
+When a non-login shell is launched /etc/bash.bashrc /etc/bashrc ~/.bashrc
 MYVAR=value
 ((MYVAR=value))                     Set a variable
 MYVAR=$((MYVAR+1)) ((MYVAR=MYVAR+1)) ((MYVAR+=1))
@@ -107,5 +111,6 @@ alias ls='ls -lap'                  Set up an alias for the ls command
 alias                               Show defined aliases
 \ls
 /bin/ls                             Run the non-aliased version of the ls command
+uname -a |awk '{print $13}' how to get  to cpu of  a host
 
 
