@@ -48,3 +48,64 @@ tac shows in a reverser format.
 --------------------------------------
 fmt -w 75 myfile  :Format a text file so that each line has a max width of 75 chars
 pr myfile
+-------------
+nl myfile  nl myfile Prepend line numbers to a text file
+wc myfile Print the number of lines, words, and bytes of a text file
+paste myfile1 myfile2 Merge lines of text files
+split -l 1 myfile Split a text file into 1-line files (named xaa, xab, xac, and so on)
+uniq myfile Print the unique lines of a text file, omitting consecutive identical lines
+sort myfile Sort alphabetically the lines of a text file
+expand myfile Convert tabs into spaces
+unexpand myfile Convert spaces into tabs
+od myfile Dump a file into octal
+cut -d: -f3 myfile               Cut the lines of a file, considering : as the delimiter and printing only the 3rd field
+
+cut -d: -f1 /etc/passwd          Print the list of user accounts in the system
+
+cut -c3-50 myfile                Print character 3 to 50 of each line of a file
+
+
+sed s/foo/bar/ myfile            Stream Editor: Replace the first occurrence of foo with bar
+
+sed s/foo/bar/g myfile           Replace all occurrences of foo with bar
+
+sed -n '7,13p' myfile            Print line 7 to 13 of a text file
+tr a-z A-Z <myfile
+tr [:lower:] [:upper:] <myfile   Translate characters: Convert all lowercase into uppercase in a text file
+tr -d 0-9 <myfile
+tr -d [:digit:] <myfile          Delete all digits from a text file
+MYVAR=value
+((MYVAR=value))                     Set a variable
+MYVAR=$((MYVAR+1)) ((MYVAR=MYVAR+1)) ((MYVAR+=1))
+((MYVAR++))
+let "MYVAR=MYVAR+1" let "MYVAR+=1"
+let MYVAR++   Increment a numeric variable
+unset MYVAR                         Delete a variable
+
+export MYVAR                        Export a variable so it can be seen by Bash child processes
+
+set ${MYVAR:=value}
+MYVAR=${MYVAR:-value}               Set a variable, if it is not already set (i.e. does not exist) or is null
+echo $MYVAR                         Print the value of a variable
+echo ${MYVAR:-message}              If variable exists and is not null, print its value, otherwise 
+print a message echo ${MYVAR:+message}              If variable exists and is not null, print a 
+message, otherwise print nothing echo $((3+3))                       Evaluate an expression and 
+print the result
+set                                 Display all Bash variables
+set -o                              Show the status of all Bash options
+set -option
+set -o long_option                  Enable a Bash option
+set +option
+set +o long_option                  Disable a Bash option
+set -v
+set -o verbose                      Enable printing of shell input lines as they are read
+set -x
+set -o xtrace                       Enable printing of command traces before execution of each command
+env                                 Display all environment variables
+typeset -f                          Show functions defined in the current Bash session
+alias ls='ls -lap'                  Set up an alias for the ls command
+alias                               Show defined aliases
+\ls
+/bin/ls                             Run the non-aliased version of the ls command
+
+
