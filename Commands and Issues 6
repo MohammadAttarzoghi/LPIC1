@@ -43,7 +43,7 @@ PPID   The process id of the process that started this process (that is, the id 
 ?      The exit code of the last command
 by exporting a variable it can be acceissible for other programs starting from that sehll
 echo "-${HOME}_abc"
-env list theecurrent EVs
+env list the current EVs
 uname
 
 Option                                     Description
