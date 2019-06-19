@@ -44,7 +44,13 @@ PPID   The process id of the process that started this process (that is, the id 
 by exporting a variable it can be acceissible for other programs starting from that sehll
 echo "-${HOME}_abc"
 env list the current EVs
+export: makes the variable global. the variable would be accessible from other shells that runs by the same user.
+        This change is temporal and if you want to do it permanently, you should write the variable assignment in
+        userhome folder in .bashrc file. .bash_history, .bash_logout, .bash_profile
+unset deletes the variable
+which command: shows the command path
 uname
+
 
 Option                                     Description
 
