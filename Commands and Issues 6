@@ -48,6 +48,7 @@ export: makes the variable global. the variable would be accessible from other s
         This change is temporal and if you want to do it permanently, you should write the variable assignment in
         userhome folder in .bashrc file. .bash_history, .bash_logout, .bash_profile
 unset deletes the variable
+https://www.tecmint.com/set-path-variable-linux-permanently/
 which command: shows the command path
 uname
 
