@@ -334,8 +334,12 @@ $ cut -f1 -d' ' what_i_have.txt | sort | uniq -c | sort -nr
 1 ball
 If you need to start your pipeline with the contents of a file, start with cat filename | ... or use a < stdin redirect.
 
-xargs
-tee
+xargs executes specific function on eacch line of output
+ls | xargs echo hi baby
+ls | xrgs -I DATA echo I have DATA and I love my DATA
+
+
+tee shows the output on the secreen ls | tee myfile copyis ls content in myfile and shows the result on the screen.
 
 bg show background jobs
 fg shows foreground jobs
