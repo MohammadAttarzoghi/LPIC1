@@ -215,6 +215,7 @@ find . -iname -type f "*my" -size +1M -size -100M
 -type l
 find . -empty -exec rm '{}' \;
 find . -name "*.htm" -exec mv '{}' '{}l' \;
+find /root/lpic* -ls
 
 switch  meaning
 -atime -6                  file was last accessed less than 6*24 hours ago
@@ -222,7 +223,12 @@ switch  meaning
 -mtime -6                  file content moditication less than time is 6*24 ago
 -mmin -90                  file's data was last modified less than 90 minutes ago
 -amin, -cmin               you guess!
-file will identify the file -i will add extra comments.
+-----------------------
+ansible practic: iinstall sshpass , determine os distro
+playbook in ansible
+----------------------
+file will identify the
+file -i will add extra comments.
 
 Compressing files
 gzip filename
