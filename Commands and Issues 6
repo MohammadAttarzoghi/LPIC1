@@ -343,7 +343,7 @@ tee shows the output on the secreen ls | tee myfile copyis ls content in myfile 
 
 bg show background jobs
 fg shows foreground jobs
-& put to background
+& put to background: sleep 1000 &
 jogs shows all jobs
 ctrl +Z susptends a job
 
