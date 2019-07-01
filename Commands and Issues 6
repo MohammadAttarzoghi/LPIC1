@@ -344,8 +344,8 @@ tee shows the output on the secreen ls | tee myfile copyis ls content in myfile 
 bg show background jobs
 fg shows foreground jobs
 & put to background: sleep 1000 &
-jogs shows all jobs
-ctrl +Z susptends a job
+jobs shows all jobs
+ctrl +Z susp ends a job
 
 nohup script.sh > mynohup.out 2>&1 &
 
@@ -355,6 +355,8 @@ killall proc(send 15)
 
 ps show running procs in your shell
 ps -aux or aux or -ef shows all processes in your entire computer system.
+ps -1 shows the processes initiated by user.
+ps -l lists all the processes in the system in user bash
 
 ps -C gedit -o user,pid,tty,time,comm
 USER PID TT TIME COMMAND
@@ -385,6 +387,7 @@ free
  1. Give high priorities (less than 0) needs root access
 2. If you are not root and asking for nice level lower than 0 you'll get an error message but the process will run with
 normal nice level (0).
+nice -n -5 command
 If you run a command with nice without any parameters, the nice value will be 10:
 
 ps -l
